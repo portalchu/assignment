@@ -16,10 +16,6 @@ void printValue(const Something& sData) {
 	cout << "value :" << sData.getValue() << endl;
 }
 
-void a(int& n) {
-	n = 3;
-}
-
 int main(int argc, char const* argv[])
 {
 	Something first;
