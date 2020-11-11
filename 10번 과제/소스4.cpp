@@ -2,31 +2,32 @@
 using namespace std;
 
 template <typename T>
-class Storage
-{
-	T m_data;
+class Counter {
+	T value;
 public:
-	Storage() {}
-	Storage(T data) { m_data = data; }
-	T getData() { return m_data; }
-	void setData(T data) { m_data = data; }
+	Counter() { value = 0; }
+	Counter(T n) { value = n; }
+	T getValue() { return value; }
+	void operator ++() { ++value; }
+	void operator --() { --value; }
 };
 
 int main()
 {
-	Storage <int>intStorage;
+	Counter <int>intCounter;
 
-	intStorage.setData(100);
-	cout << intStorage.getData() << endl;
+	for (int i = 0; i < 10; i++)
+	{
+		++intCounter;
+	}
 
-	Storage <double>doubleStorage(77.7);
+	cout << intCounter.getValue() << endl;
 
-	cout << doubleStorage.getData() << endl;
+	Counter <double>doubleCounter(15.35);
 
-	Storage <const char*>charStorage;
+	doubleCounter.operator--;
+	cout << doubleCounter.getValue() << endl;
 
-	charStorage.setData("Hello World!!");
-	cout << charStorage.getData() << endl;
 
 	return 0;
 }
